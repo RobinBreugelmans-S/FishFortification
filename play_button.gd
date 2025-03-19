@@ -5,5 +5,4 @@ func _ready():
 
 func _button_pressed():
 	print("was pressed")
-	#global.
-	#get_tree().change_scene("res://level_select.tscn")
+	get_tree().change_scene_to_file("res://level_select.tscn")
