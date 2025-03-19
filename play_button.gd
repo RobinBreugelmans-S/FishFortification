@@ -5,3 +5,4 @@ func _ready():
 
 func _button_pressed():
 	print("was pressed")
+	get_tree().change_scene("res://level_select.tscn")

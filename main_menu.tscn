@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqesoo5pvydfe"]
 
-[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://play_button.gd" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://play_button.gd" id="2_fu7sn"]
 
 [node name="Menu" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(9, 5.0625)
-texture = ExtResource("1_wtcfe")
+texture = ExtResource("1_7vrkn")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 445.0
@@ -16,4 +16,4 @@ offset_top = 275.0
 offset_right = 708.0
 offset_bottom = 349.0
 text = "CLICK HERE TEST"
-script = ExtResource("2_0e48y")
+script = ExtResource("2_fu7sn")
