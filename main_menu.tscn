@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://play_button.gd" id="2_fu7sn"]
-[ext_resource type="Script" uid="uid://dsv4ke5b117gd" path="res://quit_button.gd" id="3_fu7sn"]
+[ext_resource type="Script" path="res://quit_button.gd" id="3_fu7sn"]
 
 [node name="Menu" type="Node2D"]
 
