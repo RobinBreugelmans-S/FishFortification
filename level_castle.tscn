@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=2 format=3 uid="uid://rp5jcysuffav"]
+
+[ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://map_castle.png" id="1_eocrf"]
 
 [node name="LevelCastle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.25, 324.25)
+scale = Vector2(0.98503, 0.78295)
+texture = ExtResource("1_eocrf")
