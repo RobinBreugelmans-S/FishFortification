@@ -15,5 +15,13 @@ offset_left = 445.0
 offset_top = 275.0
 offset_right = 708.0
 offset_bottom = 349.0
-text = "CLICK HERE TEST"
+text = "Start Game"
+script = ExtResource("2_fu7sn")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 445.0
+offset_top = 368.0
+offset_right = 708.0
+offset_bottom = 442.0
+text = "Quit To Desktop"
 script = ExtResource("2_fu7sn")
