@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Fish Fortification"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://dqesoo5pvydfe"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
