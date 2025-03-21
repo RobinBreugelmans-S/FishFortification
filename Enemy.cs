@@ -10,6 +10,8 @@ public partial class Enemy : Sprite2D
 	public int trackIndex = 1;
 	override public void _Ready()
 	{
+		//TODO
+		//track = GetNode<Path2D>(new NodePath("../Map/Path").Curve();
 		Position = track[0];
 	}
 	override public void _PhysicsProcess(double delta)
