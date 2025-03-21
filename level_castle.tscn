@@ -12,6 +12,6 @@ scale = Vector2(0.98503, 0.78295)
 texture = ExtResource("1_eocrf")
 
 [node name="Enemy" type="Sprite2D" parent="."]
-position = Vector2(11, 174)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5c4li")
 script = ExtResource("3_62evs")
