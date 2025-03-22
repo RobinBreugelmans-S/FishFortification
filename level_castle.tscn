@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=5 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://map_castle.png" id="1_eocrf"]
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://level_logic.gd" id="2_5c4li"]
+[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="3_5c4li"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -585.008, -197.011, 0, 0, 0, 0, -466.229, -212.338, 0, 0, 0, 0, -346.436, -291.526, 0, 0, 0, 0, -314.965, -259.595, 0, 0, 0, 0, -362.679, -142.091, 0, 0, 0, 0, 151.011, -264.704, 0, 0, 0, 0, 488.056, -182.962, 0, 0, 0, 0, 530.694, -113.992, 0, 0, 0, 0, 460.646, -34.8043, 0, 0, 0, 0, 356.081, -43.7448, 0, 0, 0, 0, 295.169, -107.606, 0, 0, 0, 0, 130.707, -98.6653, 0, 0, 0, 0, 9.89819, -16.9232, 0, 0, 0, 0, -55.0745, 4.78958, 0, 0, 0, 0, -209.384, 2.23514, 0, 0, 0, 0, -367.755, 4.78958, 0, 0, 0, 0, -461.153, 44.3834, 0, 0, 0, 0, -508.868, 114.631, 0, 0, 0, 0, -494.655, 172.105, 0, 0, 0, 0, -454.047, 218.085, 0, 0, 0, 0, -360.649, 237.244, 0, 0, 0, 0, -127.154, 230.858, 0, 0, 0, 0, 294.154, 294.719)
+"points": PackedVector2Array(0, 0, 0, 0, -585.008, -197.011, 0, 0, 0, 0, -466.229, -212.338, 0, 0, 0, 0, -346.436, -291.526, 0, 0, 0, 0, -314.965, -259.595, 0, 0, 0, 0, -362.679, -142.091, 0, 0, 0, 0, 147.247, -257.983, 0, 0, 0, 0, 488.056, -182.962, 0, 0, 0, 0, 530.694, -113.992, 0, 0, 0, 0, 460.646, -34.8043, 0, 0, 0, 0, 356.081, -43.7448, 0, 0, 0, 0, 295.169, -107.606, 0, 0, 0, 0, 130.707, -98.6653, 0, 0, 0, 0, 9.89819, -16.9232, 0, 0, 0, 0, -55.0745, 4.78958, 0, 0, 0, 0, -209.384, 2.23514, 0, 0, 0, 0, -367.755, 4.78958, 0, 0, 0, 0, -461.153, 44.3834, 0, 0, 0, 0, -508.868, 114.631, 0, 0, 0, 0, -494.655, 172.105, 0, 0, 0, 0, -454.047, 218.085, 0, 0, 0, 0, -360.649, 237.244, 0, 0, 0, 0, -127.154, 230.858, 0, 0, 0, 0, 82.8332, 273.373, 0, 0, 0, 0, 206.192, 293.957, 0, 0, 0, 0, 294.154, 294.719)
 }
-point_count = 23
+point_count = 25
 
-[node name="LevelCastle" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource("2_5c4li")
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_eocrf")
-script = ExtResource("2_5c4li")
 
 [node name="Path" type="Path2D" parent="Map"]
 position = Vector2(2.68956, -0.594198)
@@ -24,5 +25,18 @@ curve = SubResource("Curve2D_5c4li")
 [node name="PathFollow" type="PathFollow2D" parent="Map/Path"]
 position = Vector2(-585.008, -197.011)
 rotation = -0.128329
-scale = Vector2(1, 1)
 rotates = false
+loop = false
+
+[node name="UI" type="Sprite2D" parent="."]
+position = Vector2(-193, 129)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_5c4li")
+
+[node name="Stats" type="RichTextLabel" parent="UI"]
+offset_left = 128.667
+offset_top = -86.0
+offset_right = 248.667
+offset_bottom = 154.0
+bbcode_enabled = true
+text = "[color=#000000]baseHp: [/color]"
