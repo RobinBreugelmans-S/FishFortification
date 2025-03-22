@@ -1,8 +1,9 @@
-class_name LevelLogic extends Node
+extends Node
 
 var stats: RichTextLabel
 var base_hp: int = 127
 
+var wave = 1
 var counter = 0
 var enemy: Resource = preload("res://enemy.tscn")
 
@@ -31,8 +32,6 @@ func damage_base(dmg: int):
 	if (base_hp <= 0):
 		base_hp = 0
 		#TODO: handle death
-		print_debug(base_hp)
-	
 
 #INPUT
 func _input(event):
