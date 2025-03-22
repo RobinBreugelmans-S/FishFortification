@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=4 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://map_castle.png" id="1_eocrf"]
-[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="2_5c4li"]
-[ext_resource type="Script" uid="uid://epp2hmlilcq1" path="res://Enemy.cs" id="3_62evs"]
+[ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://level_logic.gd" id="2_5c4li"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -13,14 +12,17 @@ point_count = 23
 [node name="LevelCastle" type="Node2D"]
 
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(576.25, 324.25)
-scale = Vector2(0.98503, 0.78295)
+position = Vector2(960, 540)
 texture = ExtResource("1_eocrf")
+script = ExtResource("2_5c4li")
 
 [node name="Path" type="Path2D" parent="Map"]
+position = Vector2(2.68956, -0.594198)
+scale = Vector2(1.6456, 1.31174)
 curve = SubResource("Curve2D_5c4li")
 
-[node name="Enemy" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5c4li")
-script = ExtResource("3_62evs")
+[node name="PathFollow" type="PathFollow2D" parent="Map/Path"]
+position = Vector2(-585.008, -197.011)
+rotation = -0.128329
+scale = Vector2(1, 1)
+rotates = false

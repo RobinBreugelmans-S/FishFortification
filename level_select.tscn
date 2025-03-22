@@ -10,10 +10,10 @@ position = Vector2(66, 66)
 texture = ExtResource("1_il3u1")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 73.0
-offset_top = 360.0
-offset_right = 224.0
-offset_bottom = 402.0
+offset_left = 116.0
+offset_top = 523.0
+offset_right = 316.0
+offset_bottom = 573.0
 text = "Castle"
 script = ExtResource("2_vomi7")
 scene_name = "level_castle"
