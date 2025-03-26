@@ -40,5 +40,5 @@ func _input(event):
 func place_tower(pos: Vector2):
 	var new_tower: Sprite2D =  tower.instantiate()
 	new_tower.position = pos
-	
+	new_tower.set_script(load("res://tower_shrimp.gd"))
 	add_child(new_tower)

@@ -34,7 +34,7 @@ public partial class Enemy : Sprite2D
 	private void damageBaseAndDie()
 	{
 		GetTree().GetCurrentScene().Call("damage_base", hp);
-		die(); //removes the enemy from the level
+		die();
 	}
 	
 	public void DoDamage(int dmg)
