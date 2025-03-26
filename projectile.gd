@@ -1,10 +1,9 @@
 extends Node2D
 
-var dmg: int
 var vel: Vector2
 
 func set_values(damage: int, velocity: Vector2):
-	dmg = damage;
+	get_child(0).set_damage(damage)
 	vel = velocity;
 
 func _physics_process(delta: float):

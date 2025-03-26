@@ -10,7 +10,7 @@ var counter = 0
 func attack():
 	if there_are_enemies():
 		var new_projectile: Sprite2D = projectile.instantiate()
-		new_projectile.set_values(5, get_first_enemy_dir() * projectile_spd)
+		new_projectile.set_values(dmg, get_first_enemy_dir() * projectile_spd)
 		self.add_child(new_projectile)
 
 func _physics_process(delta: float):
