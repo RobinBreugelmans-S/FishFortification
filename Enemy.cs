@@ -18,6 +18,7 @@ public partial class Enemy : Sprite2D
 	override public void _Ready()
 	{
 		track = GetParent<PathFollow2D>();
+		AddToGroup("enemy");
 	}
 
 	override public void _PhysicsProcess(double delta)
@@ -33,6 +34,20 @@ public partial class Enemy : Sprite2D
 	private void damageBaseAndDie()
 	{
 		GetTree().GetCurrentScene().Call("damage_base", hp);
-		QueueFree(); //removes the enemy from the level
+		die(); //removes the enemy from the level
+	}
+	
+	public void DoDamage(int dmg)
+	{
+		hp -= dmg;
+		if(hp <= 0)
+		{
+			die();
+		}
+	}
+	
+	private void die()
+	{
+		GetParent().QueueFree();
 	}
 }

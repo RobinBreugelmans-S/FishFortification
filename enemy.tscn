@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://caowrpnq5rk3g"]
+[gd_scene load_steps=4 format=3 uid="uid://caowrpnq5rk3g"]
 
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_4gyqm"]
 [ext_resource type="Script" uid="uid://epp2hmlilcq1" path="res://Enemy.cs" id="2_qi2p4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 64.0078
 
 [node name="PathFollow" type="PathFollow2D"]
 rotates = false
@@ -10,3 +13,8 @@ loop = false
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4gyqm")
 script = ExtResource("2_qi2p4")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_4gyqm")
