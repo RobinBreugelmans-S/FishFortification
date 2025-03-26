@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8x0c5d0ln7ms"]
 
-[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_qxf0c"]
+[ext_resource type="Texture2D" uid="uid://bglhxl37ef1ce" path="res://assets/bubbleProjectile.png" id="1_dgwo2"]
 [ext_resource type="Script" uid="uid://dpd8iv203lhtv" path="res://projectile.gd" id="2_qxf0c"]
 [ext_resource type="Script" uid="uid://o4aquvkwmuv0" path="res://projectile_area.gd" id="3_dgwo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
-radius = 65.0
+radius = 75.0
 
 [node name="Projectile" type="Sprite2D"]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_qxf0c")
+texture = ExtResource("1_dgwo2")
 script = ExtResource("2_qxf0c")
 
 [node name="Area2D" type="Area2D" parent="."]

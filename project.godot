@@ -14,7 +14,7 @@ config/name="Fish Fortification"
 run/main_scene="uid://dqesoo5pvydfe"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 

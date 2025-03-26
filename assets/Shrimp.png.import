@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi0usysa0i1r0"
-path="res://.godot/imported/map_castle.png-fac46dcdb8bdcb773e889df62a6237c1.ctex"
+uid="uid://dyjfnrvioc8pr"
+path="res://.godot/imported/Shrimp.png-128b26b4dc60adb8d574f4eda3e8ecb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map_castle.png"
-dest_files=["res://.godot/imported/map_castle.png-fac46dcdb8bdcb773e889df62a6237c1.ctex"]
+source_file="res://assets/Shrimp.png"
+dest_files=["res://.godot/imported/Shrimp.png-128b26b4dc60adb8d574f4eda3e8ecb4.ctex"]
 
 [params]
 

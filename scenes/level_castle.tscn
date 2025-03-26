@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://rp5jcysuffav"]
 
-[ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://map_castle.png" id="1_eocrf"]
-[ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://level_logic.gd" id="2_5c4li"]
-[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="3_5c4li"]
+[ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://level_logic.gd" id="1_fqugn"]
+[ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
+[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="3_673ui"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -11,11 +11,11 @@ _data = {
 point_count = 28
 
 [node name="Level" type="Node2D"]
-script = ExtResource("2_5c4li")
+script = ExtResource("1_fqugn")
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_eocrf")
+texture = ExtResource("2_jv2qt")
 
 [node name="Path" type="Path2D" parent="Map"]
 position = Vector2(2.68956, -0.594198)
@@ -24,7 +24,7 @@ curve = SubResource("Curve2D_5c4li")
 [node name="UI" type="Sprite2D" parent="."]
 position = Vector2(-193, 129)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_5c4li")
+texture = ExtResource("3_673ui")
 
 [node name="Stats" type="RichTextLabel" parent="UI"]
 offset_left = 128.667

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqrosnm1j71nq"]
 
-[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://icon.svg" id="1_il3u1"]
-[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://button_load_scene.gd" id="2_vomi7"]
+[ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="1_p0wlc"]
+[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://button_load_scene.gd" id="2_2epne"]
 
 [node name="Node2D2" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(66, 66)
-texture = ExtResource("1_il3u1")
+texture = ExtResource("1_p0wlc")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 116.0
@@ -15,5 +15,5 @@ offset_top = 523.0
 offset_right = 316.0
 offset_bottom = 573.0
 text = "Castle"
-script = ExtResource("2_vomi7")
+script = ExtResource("2_2epne")
 scene_name = "level_castle"
