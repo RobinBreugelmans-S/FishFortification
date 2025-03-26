@@ -6,6 +6,7 @@ var base_hp: int = 127
 var wave = 1
 var counter = 0
 var enemy: Resource = preload("res://enemy.tscn")
+var tower: Resource = preload("res://tower.tscn")
 
 func _ready():
 	stats = $UI/Stats
@@ -23,9 +24,7 @@ func _physics_process(delta: float):
 
 #TODO: add parameters for which enemy
 func spawn_enemy():
-	var new_path_follow = $Map/Path/PathFollow.duplicate()
-	new_path_follow.add_child(enemy.instantiate())
-	$Map/Path.add_child(new_path_follow)
+	$Map/Path.add_child(enemy.instantiate())
 
 func damage_base(dmg: int):
 	base_hp -= dmg
@@ -36,4 +35,10 @@ func damage_base(dmg: int):
 #INPUT
 func _input(event):
 	if event.is_action_pressed("set_tower"):
-		print_debug("tower spawned at: %s" %  get_viewport().get_mouse_position())
+		place_tower(get_viewport().get_mouse_position())
+
+func place_tower(pos: Vector2):
+	var new_tower: Sprite2D =  tower.instantiate()
+	new_tower.position = pos
+	
+	add_child(new_tower)
