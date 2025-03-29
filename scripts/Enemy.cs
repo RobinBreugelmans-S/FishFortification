@@ -43,7 +43,9 @@ public partial class Enemy : Sprite2D
 		if(hp <= 0)
 		{
 			die();
+			return;
 		}
+		Modulate = new Color(0xFF000000);
 	}
 	
 	private void die()

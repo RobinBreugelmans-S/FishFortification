@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqesoo5pvydfe"]
 
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="1_bqqt6"]
-[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://button_load_scene.gd" id="2_wu84c"]
-[ext_resource type="Script" path="res://quit_button.gd" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://scripts/button_load_scene.gd" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://dsv4ke5b117gd" path="res://scripts/quit_button.gd" id="3_8ln24"]
 
 [node name="Menu" type="Node2D"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://rp5jcysuffav"]
 
-[ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://level_logic.gd" id="1_fqugn"]
+[ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="3_673ui"]
 

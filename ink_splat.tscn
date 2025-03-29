@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://btks0m14ty3tj"]
+
+[ext_resource type="Texture2D" uid="uid://d04xb5yrql4lj" path="res://assets/InkSplat.png" id="1_wxjoq"]
+[ext_resource type="Script" uid="uid://cdictynalpuhe" path="res://scripts/ink_splat.gd" id="2_wxjoq"]
+[ext_resource type="Script" uid="uid://o4aquvkwmuv0" path="res://scripts/projectile_area.gd" id="3_wktji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 75.0
+
+[node name="Projectile" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wxjoq")
+script = ExtResource("2_wxjoq")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_wktji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qxf0c")

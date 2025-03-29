@@ -7,7 +7,8 @@ var wave = 1
 var counter = 0
 var enemy: Resource = preload("res://enemy.tscn")
 var tower: Resource = preload("res://tower.tscn")
-var shrimp_script: Script = load("res://tower_shrimp.gd")
+var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
+var squid_script: Script = load("res://scripts/tower_squid.gd")
 
 func _ready():
 	stats = $UI/Stats
@@ -36,10 +37,10 @@ func damage_base(dmg: int):
 #INPUT
 func _input(event):
 	if event.is_action_pressed("set_tower"):
-		place_tower(get_viewport().get_mouse_position())
+		place_tower(get_viewport().get_mouse_position(), squid_script)#shrimp_script)
 
-func place_tower(pos: Vector2): # tower_type: Script
+func place_tower(pos: Vector2, tower_script: Script): # tower_type: Script
 	var new_tower: Sprite2D =  tower.instantiate()
 	new_tower.position = pos
-	new_tower.set_script(shrimp_script) #TODO: make it possible to place different towers
+	new_tower.set_script(tower_script) #TODO: make it possible to place different towers
 	add_child(new_tower)
