@@ -37,7 +37,7 @@ func damage_base(dmg: int):
 #INPUT
 func _input(event):
 	if event.is_action_pressed("set_tower"):
-		place_tower(get_viewport().get_mouse_position(), squid_script)#shrimp_script)
+		place_tower(get_viewport().get_mouse_position(), shrimp_script)
 
 func place_tower(pos: Vector2, tower_script: Script): # tower_type: Script
 	var new_tower: Sprite2D =  tower.instantiate()
