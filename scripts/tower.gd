@@ -9,6 +9,7 @@ var all_enemies: Array[Node]
 var enemies_in_range: Array[Node] = []
 
 var counter = 0
+var atk_countdown = 0
 
 func attack():
 	pass
@@ -21,10 +22,12 @@ func _physics_process(delta: float):
 		if (enemy.global_position - global_position).length() <= range:
 			enemies_in_range.append(enemy)
 	
-	if counter % atk_delay == 0 && there_are_enemies():
+	if atk_countdown == 0 && there_are_enemies():
+		atk_countdown = atk_delay
 		attack()
 	
-	counter += 1;
+	counter += 1
+	atk_countdown = max(atk_countdown - 1, 0)
 
 func get_first_enemy() -> Node:
 	return enemies_in_range[0]
