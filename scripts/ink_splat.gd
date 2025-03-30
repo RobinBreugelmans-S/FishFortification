@@ -1,23 +1,38 @@
-extends Node2D
+extends Projectile
 
-var dmg: int
+#var dmg: int
 #pos on track where it will go to
-var target_pos: Vector2
+#var target_pos: Vector2
+var enemy: Node2D = null
+var used = false
 
 var counter = 0
-
-func set_values(damage: int, target_pos: Vector2):
-	dmg = damage
-	self.target_pos = target_pos
+var whenToRemove = -1
 
 func _physics_process(delta: float):
-	#global_position = target_pos
-	var lerp_val = min(counter, 32) / 32.  #ADD QUADRADIC FUNC HERE!!
-	global_position = lerp(global_position, target_pos, lerp_val)
+	global_position += vel
+	
+	#V use this for other tower (like spike factory)
+	#var lerp_val = min(counter, 32) / 32.
+	#global_position = lerp(global_position, target_pos, lerp_val)
+	
+	if enemy:
+		global_position = enemy.global_position
+	
+	if counter == whenToRemove:
+		enemy.Spd *= 2
+		enemy.Slowed = false
+		queue_free()
+	
 	counter += 1
 
 func on_touch(other: Area2D):
-	var enemy = other.get_parent()
-	if enemy.is_in_group("enemy"):
+	var touched_enemy = other.get_parent()
+	if !used && touched_enemy.is_in_group("enemy") && !touched_enemy.Slowed:
+		enemy = touched_enemy
+		used = true
 		enemy.DoDamage(dmg)
-		#queue_free()
+		enemy.Spd /= 2.
+		enemy.Slowed = true
+		whenToRemove = counter + 260
+		#enemy.DoDamage(dmg)

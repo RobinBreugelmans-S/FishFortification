@@ -6,7 +6,7 @@ var projectile_spd = 8
 func _init():
 	dmg = 6
 	atk_delay = 50
-	range = 390
+	range = 460
 	texture = load("res://assets/Shrimp.png")
 
 func attack():

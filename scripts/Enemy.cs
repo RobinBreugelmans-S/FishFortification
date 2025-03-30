@@ -5,8 +5,9 @@ using System.Diagnostics;
 
 public partial class Enemy : Sprite2D
 {
-	public int hp = 12;
-	private int spd = 69;
+	public int Hp = 12;
+	public int Spd = 69;
+	public bool Slowed = false;
 	private PathFollow2D track;
 
 	//TODO: add presets for enemy type
@@ -23,7 +24,7 @@ public partial class Enemy : Sprite2D
 
 	override public void _PhysicsProcess(double delta)
 	{
-		track.Progress += spd * (float)delta;
+		track.Progress += Spd * (float)delta;
 
 		if(track.ProgressRatio == 1)
 		{
@@ -33,19 +34,17 @@ public partial class Enemy : Sprite2D
 
 	private void damageBaseAndDie()
 	{
-		GetTree().GetCurrentScene().Call("damage_base", hp);
+		GetTree().GetCurrentScene().Call("damage_base", Hp);
 		die();
 	}
 	
 	public void DoDamage(int dmg)
 	{
-		hp -= dmg;
-		if(hp <= 0)
+		Hp -= dmg;
+		if(Hp <= 0)
 		{
 			die();
-			return;
 		}
-		Modulate = new Color(0xFF000000);
 	}
 	
 	private void die()

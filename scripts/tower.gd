@@ -1,13 +1,11 @@
 class_name Tower
 extends Sprite2D
 
-const Enemy: CSharpScript = preload("res://scripts/Enemy.cs")
-
 var dmg
 var atk_delay
 var range: float
 
-var all_enemies: Array[Node] #Array[Enemy]
+var all_enemies: Array[Node]
 var enemies_in_range: Array[Node] = []
 
 var counter = 0
@@ -16,7 +14,7 @@ func attack():
 	pass
 
 func _physics_process(delta: float):
-	all_enemies = get_node("../Map/Path").get_children() #convert to Enemy
+	all_enemies = get_node("../Map/Path").get_children()
 	
 	enemies_in_range = []
 	for enemy in all_enemies:

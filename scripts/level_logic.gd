@@ -20,7 +20,7 @@ func _physics_process(delta: float):
 	#stats
 	stats.text = ""
 	stats.push_color(Color(0, 0, 0, 1))
-	stats.append_text("baseHp: %s" % base_hp)
+	stats.append_text("baseHp: %s\n" % base_hp)
 	
 	counter += 1
 
@@ -37,10 +37,11 @@ func damage_base(dmg: int):
 #INPUT
 func _input(event):
 	if event.is_action_pressed("set_tower"):
-		place_tower(get_viewport().get_mouse_position(), shrimp_script)
+		place_tower(get_viewport().get_mouse_position(), squid_script)
+		#TODO: make it possible to place different towers
 
-func place_tower(pos: Vector2, tower_script: Script): # tower_type: Script
+func place_tower(pos: Vector2, tower_script: Script):
 	var new_tower: Sprite2D =  tower.instantiate()
 	new_tower.position = pos
-	new_tower.set_script(tower_script) #TODO: make it possible to place different towers
+	new_tower.set_script(tower_script)
 	add_child(new_tower)

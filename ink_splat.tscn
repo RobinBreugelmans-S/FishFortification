@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
 radius = 75.0
 
-[node name="Projectile" type="Sprite2D"]
+[node name="InkSplat" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_wxjoq")
 script = ExtResource("2_wxjoq")
