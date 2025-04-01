@@ -1,6 +1,8 @@
 extends Node
 
 var stats: RichTextLabel
+var wave_label: RichTextLabel
+
 var base_hp: int = 127
 
 var wave = 1
@@ -16,6 +18,8 @@ var enemies_spawned = 0
 
 func _ready():
 	stats = $UI/Stats/Text
+	wave_label = $UI/Wave/Text
+	wave_label.append_text("Wave: %s" % wave)
 
 func _physics_process(delta: float):
 	if (counter % 80 == 0 and enemies_to_spawn > 0):
@@ -28,6 +32,7 @@ func _physics_process(delta: float):
 		enemies_to_spawn = fib(wave)
 		has_wave_started = false
 		print(wave, " ", enemies_to_spawn)
+		wave_label.text = "Wave: %s" % wave
 
 	
 	#stats
