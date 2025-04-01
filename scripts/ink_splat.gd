@@ -19,7 +19,7 @@ func _physics_process(delta: float):
 	if enemy:
 		global_position = enemy.global_position
 	
-	if counter == whenToRemove:
+	if counter == whenToRemove && enemy:
 		enemy.Spd *= 2
 		enemy.Slowed = false
 		queue_free()
@@ -35,4 +35,3 @@ func on_touch(other: Area2D):
 		enemy.Spd /= 2.
 		enemy.Slowed = true
 		whenToRemove = counter + 260
-		#enemy.DoDamage(dmg)

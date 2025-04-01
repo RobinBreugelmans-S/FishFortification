@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=7 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="3_673ui"]
+[ext_resource type="Script" uid="uid://be6lbivjdh87g" path="res://scripts/button_shop.gd" id="4_jv2qt"]
+[ext_resource type="Script" uid="uid://bknf0785e4qi" path="res://scenes/buy_tower.gd" id="5_673ui"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -22,14 +24,50 @@ position = Vector2(2.68956, -0.594198)
 curve = SubResource("Curve2D_5c4li")
 
 [node name="UI" type="Sprite2D" parent="."]
-position = Vector2(-193, 129)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_673ui")
 
 [node name="Stats" type="RichTextLabel" parent="UI"]
-offset_left = 128.667
-offset_top = -86.0
-offset_right = 248.667
-offset_bottom = 154.0
+offset_right = 120.0
+offset_bottom = 240.0
 bbcode_enabled = true
 text = "[color=#000000]baseHp: [/color]"
+
+[node name="Shop" type="Sprite2D" parent="UI"]
+position = Vector2(252, 64)
+texture = ExtResource("3_673ui")
+
+[node name="Text" type="RichTextLabel" parent="UI/Shop"]
+offset_left = -62.0
+offset_top = -63.0
+offset_right = 62.0
+offset_bottom = -23.0
+bbcode_enabled = true
+text = "[color=#000000]SHOP[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UI/Shop"]
+offset_left = -63.0
+offset_top = -21.0
+offset_right = 63.0
+offset_bottom = 17.0
+text = "V"
+script = ExtResource("4_jv2qt")
+
+[node name="BuyTowerButtons" type="Node" parent="UI/Shop"]
+
+[node name="BuyTower" type="Button" parent="UI/Shop/BuyTowerButtons"]
+offset_left = 288.0
+offset_top = 123.0
+offset_right = 469.0
+offset_bottom = 291.0
+text = "Squid"
+script = ExtResource("5_673ui")
+
+[node name="BuyTower2" type="Button" parent="UI/Shop/BuyTowerButtons"]
+offset_left = 289.0
+offset_top = 293.0
+offset_right = 470.0
+offset_bottom = 461.0
+text = "Shrimp"

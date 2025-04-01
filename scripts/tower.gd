@@ -15,7 +15,7 @@ func attack():
 	pass
 
 func _physics_process(delta: float):
-	all_enemies = get_node("../Map/Path").get_children()
+	all_enemies = $"../Map/Path".get_children()
 	
 	enemies_in_range = []
 	for enemy in all_enemies:
