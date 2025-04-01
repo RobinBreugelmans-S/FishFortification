@@ -15,7 +15,7 @@ var bought_tower: Script
 var enemies_spawned = 0
 
 func _ready():
-	stats = $UI/Stats
+	stats = $UI/Stats/Text
 
 func _physics_process(delta: float):
 	if (counter % 80 == 0 and enemies_to_spawn > 0):
