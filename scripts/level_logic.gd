@@ -31,7 +31,7 @@ func _physics_process(delta: float):
 		spawn_enemy()
 		has_wave_started = true
 	
-	if len(get_tree().get_nodes_in_group("enemy")) == 0 and has_wave_started:
+	if len(get_tree().get_nodes_in_group("enemy")) == 0 and has_wave_started and enemies_to_spawn == 0:
 		wave += 1
 		enemies_to_spawn = fib(wave)
 		has_wave_started = false
