@@ -59,7 +59,16 @@ func _input(event):
 		place_tower(get_viewport().get_mouse_position(), bought_tower)
 		bought_tower = null
 		#TODO: make it possible to place different towers
-
+	if event.is_action_pressed("up"):
+		$Player.Move(0)
+	if event.is_action_pressed("left"):
+		$Player.Move(2)
+	if event.is_action_pressed("down"):
+		$Player.Move(1)
+	if event.is_action_pressed("right"):
+		$Player.Move(3)
+	print($Player.position)
+	
 func place_tower(pos: Vector2, tower_script: Script):
 	var new_tower: Sprite2D =  tower.instantiate()
 	new_tower.position = pos
