@@ -3,10 +3,10 @@ using System;
 
 public partial class Player : Sprite2D
 {
-	public int max_movement_speed;
+	public float max_movement_speed;
 	public double attack_cooldown;
 	private Node levelLogic;
-	public Vector2 position;
+	// public Vector2 position;
 	public Vector2 movement_speed;
 	public float speed_damping;
 	
@@ -17,9 +17,9 @@ public partial class Player : Sprite2D
 	public Player()
 	{
 		this.movement_speed = Vector2.Zero;
-		this.position = Vector2(500, 500);
-		this.speed_damping = 0.95f;  // Should be in the domain [0, 1]
-		this.max_movement_speed = 200;
+		this.Position = new Vector2(500, 500);
+		this.speed_damping = 0.90f;  // Should be in the domain [0, 1]
+		this.max_movement_speed = 10f;
 	}
 
 	public override void _Ready()
@@ -30,12 +30,12 @@ public partial class Player : Sprite2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		this.position += this.movement_speed;
+		this.Position += this.movement_speed;
 		this.movement_speed *= this.speed_damping;
 	}
 
 	public void Move(Direction direction){
-		const float add_speed = 30f;
+		const float add_speed = 1f;
 
 		switch(direction){
 			case Direction.UP:

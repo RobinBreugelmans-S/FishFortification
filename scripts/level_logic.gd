@@ -17,6 +17,11 @@ var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower: Script
 var enemies_spawned = 0
 
+var move_up = false
+var move_left = false
+var move_right = false
+var move_down = false
+
 func _ready():
 	stats = $UI/Stats/Text
 	wave_label = $UI/Wave/Text
@@ -27,6 +32,16 @@ func _physics_process(delta: float):
 		enemies_to_spawn -= 1;
 		spawn_enemy()
 		has_wave_started = true
+	
+	# Input
+	if move_up:
+		$Player.Move(0)
+	if move_left:
+		$Player.Move(2)
+	if move_down:
+		$Player.Move(1)
+	if move_right:
+		$Player.Move(3)
 	
 	if len(get_tree().get_nodes_in_group("enemy")) == 0 and has_wave_started and enemies_to_spawn == 0:
 		wave += 1
@@ -41,7 +56,6 @@ func _physics_process(delta: float):
 	stats.append_text("money: %s\n" % money)
 	
 	counter += 1
-	print(money)
 
 #TODO: add parameters for which enemy
 func spawn_enemy():
@@ -60,14 +74,21 @@ func _input(event):
 		bought_tower = null
 		#TODO: make it possible to place different towers
 	if event.is_action_pressed("up"):
-		$Player.Move(0)
+		move_up = true
+	if event.is_action_released("up"):
+		move_up = false
 	if event.is_action_pressed("left"):
-		$Player.Move(2)
+		move_left = true
+	if event.is_action_released("left"):
+		move_left = false
 	if event.is_action_pressed("down"):
-		$Player.Move(1)
+		move_down = true
+	if event.is_action_released("down"):
+		move_down = false
 	if event.is_action_pressed("right"):
-		$Player.Move(3)
-	print($Player.position)
+		move_right = true
+	if event.is_action_released("right"):
+		move_right = false
 	
 func place_tower(pos: Vector2, tower_script: Script):
 	var new_tower: Sprite2D =  tower.instantiate()
