@@ -97,9 +97,9 @@ offset_left = 1720.0
 offset_right = 1920.0
 offset_bottom = 40.0
 
+[node name="TowerPreview" type="Sprite2D" parent="UI"]
+
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(670, 351)
 texture = ExtResource("8_gp5ht")
 script = ExtResource("8_kof1h")
-
-[node name="TowerPreview" type="Sprite2D" parent="UI"]
