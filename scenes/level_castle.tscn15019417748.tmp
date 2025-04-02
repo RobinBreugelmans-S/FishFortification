@@ -74,7 +74,6 @@ text = "Squid"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("6_y3k84")
 price = 50
-texture_path = "res://assets/squid.png"
 
 [node name="BuyShrimp" type="Button" parent="UI/Shop/BuyTowerButtons"]
 visible = false
@@ -86,7 +85,6 @@ text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
 price = 50
-texture_path = "res://assets/Shrimp.png"
 
 [node name="Wave" type="Sprite2D" parent="UI"]
 
