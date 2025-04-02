@@ -7,15 +7,18 @@ var base_hp: int = 127
 var money: int = 100
 
 var wave = 1
+var enemies_spawned = 0
 var has_wave_started = true
-var counter = 0
 var enemies_to_spawn = fib(wave)
+
 var enemy: Resource = preload("res://enemy.tscn")
 var tower: Resource = preload("res://tower.tscn")
 var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
-var bought_tower: Script
-var enemies_spawned = 0
+var bought_tower
+var bought_tower_texture_path: String
+
+var counter = 0
 
 var move_up = false
 var move_left = false
@@ -54,6 +57,14 @@ func _physics_process(delta: float):
 	stats.push_color(Color(0, 0, 0, 1))
 	stats.append_text("baseHp: %s\n" % base_hp)
 	stats.append_text("money: %s\n" % money)
+	
+	#enemy sprite hover
+	if bought_tower:
+		if !$UI/TowerPreview.texture:
+			$UI/TowerPreview.texture = load(bought_tower_texture_path)
+		$UI/TowerPreview.global_position = get_viewport().get_mouse_position()
+	else:
+		$UI/TowerPreview.texture = null
 	
 	counter += 1
 

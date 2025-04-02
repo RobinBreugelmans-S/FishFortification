@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=9 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://bknf0785e4qi" path="res://scripts/buy_tower.gd" id="5_673ui"]
 [ext_resource type="Script" uid="uid://dlp35704gsxv5" path="res://scripts/tower_squid.gd" id="6_y3k84"]
 [ext_resource type="Script" uid="uid://de7plwdqfv7n0" path="res://scripts/tower_shrimp.gd" id="7_kof1h"]
-[ext_resource type="Texture2D" uid="uid://vkh7ymqktr6r" path="res://assets/tempenemy.png" id="8_gp5ht"]
-[ext_resource type="Script" uid="uid://br08ixpqg8mss" path="res://scripts/Player.cs" id="8_kof1h"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -76,7 +74,6 @@ text = "Squid"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("6_y3k84")
 price = 50
-texture_path = "res://assets/squid.png"
 
 [node name="BuyShrimp" type="Button" parent="UI/Shop/BuyTowerButtons"]
 visible = false
@@ -88,7 +85,6 @@ text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
 price = 50
-texture_path = "res://assets/Shrimp.png"
 
 [node name="Wave" type="Sprite2D" parent="UI"]
 
@@ -96,10 +92,5 @@ texture_path = "res://assets/Shrimp.png"
 offset_left = 1720.0
 offset_right = 1920.0
 offset_bottom = 40.0
-
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(670, 351)
-texture = ExtResource("8_gp5ht")
-script = ExtResource("8_kof1h")
 
 [node name="TowerPreview" type="Sprite2D" parent="UI"]

@@ -7,7 +7,7 @@ func _init():
 	dmg = 2
 	atk_delay = 120
 	range = 320
-	texture = load("res://assets/tempsquid.png")
+	texture = load("res://assets/squid.png")
 
 func attack():
 	for enemy in enemies_in_range:

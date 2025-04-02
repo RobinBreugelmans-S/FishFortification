@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clq2dix77h3s6"
-path="res://.godot/imported/tempsquid.png-f65fe346628a915bc28ee12aa5dfed5b.ctex"
+uid="uid://dwlk2fo8wx1m6"
+path="res://.godot/imported/playerCharacter.png-b941c5c5413c25684d432b6c93817d63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tempsquid.png"
-dest_files=["res://.godot/imported/tempsquid.png-f65fe346628a915bc28ee12aa5dfed5b.ctex"]
+source_file="res://assets/playerCharacter.png"
+dest_files=["res://.godot/imported/playerCharacter.png-b941c5c5413c25684d432b6c93817d63.ctex"]
 
 [params]
 
