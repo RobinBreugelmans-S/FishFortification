@@ -2,6 +2,7 @@ extends Node
 
 var stats: RichTextLabel
 var base_hp: int = 127
+var money: int = 100
 
 var wave = 1
 var has_wave_started = true
@@ -27,15 +28,15 @@ func _physics_process(delta: float):
 		wave += 1
 		enemies_to_spawn = fib(wave)
 		has_wave_started = false
-		print(wave, " ", enemies_to_spawn)
-
 	
 	#stats
 	stats.text = ""
 	stats.push_color(Color(0, 0, 0, 1))
 	stats.append_text("baseHp: %s\n" % base_hp)
+	stats.append_text("money: %s\n" % money)
 	
 	counter += 1
+	print(money)
 
 #TODO: add parameters for which enemy
 func spawn_enemy():
@@ -49,8 +50,9 @@ func damage_base(dmg: int):
 
 #INPUT
 func _input(event):
-	if event.is_action_pressed("set_tower"):
+	if event.is_action_pressed("set_tower") && bought_tower:
 		place_tower(get_viewport().get_mouse_position(), bought_tower)
+		bought_tower = null
 		#TODO: make it possible to place different towers
 
 func place_tower(pos: Vector2, tower_script: Script):

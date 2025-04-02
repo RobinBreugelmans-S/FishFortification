@@ -7,8 +7,13 @@ public partial class Enemy : Sprite2D
 {
 	public int Hp = 12;
 	public int Spd = 69;
+	public int MoneyReward = 16;
+	
 	public bool Slowed = false;
+	
 	private PathFollow2D track;
+
+	private Node levelLogic;
 
 	//TODO: add presets for enemy type
 	public Enemy()
@@ -18,6 +23,7 @@ public partial class Enemy : Sprite2D
 
 	override public void _Ready()
 	{
+		levelLogic = GetNode("/root/Level");
 		track = GetParent<PathFollow2D>();
 		AddToGroup("enemy");
 	}
@@ -35,7 +41,7 @@ public partial class Enemy : Sprite2D
 	private void damageBaseAndDie()
 	{
 		GetTree().GetCurrentScene().Call("damage_base", Hp);
-		die();
+		GetParent().QueueFree();
 	}
 	
 	public void DoDamage(int dmg)
@@ -49,6 +55,9 @@ public partial class Enemy : Sprite2D
 	
 	private void die()
 	{
+		levelLogic.Set("money",
+			(int) levelLogic.Get("money") + MoneyReward
+		);
 		GetParent().QueueFree();
 	}
 }
