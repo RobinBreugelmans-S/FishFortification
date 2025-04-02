@@ -85,3 +85,10 @@ text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
 price = 50
+
+[node name="Wave" type="Sprite2D" parent="UI"]
+
+[node name="Text" type="RichTextLabel" parent="UI/Wave"]
+offset_left = 1720.0
+offset_right = 1920.0
+offset_bottom = 40.0
