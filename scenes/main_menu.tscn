@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqesoo5pvydfe"]
+[gd_scene load_steps=6 format=3 uid="uid://dqesoo5pvydfe"]
 
 [ext_resource type="Texture2D" uid="uid://c55j6773kduq8" path="res://assets/fishFortBackground.png" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://4dvs1wsbrrjb" path="res://assets/FishTitleScreen.png" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://scripts/button_load_scene.gd" id="2_wu84c"]
 [ext_resource type="Script" uid="uid://dsv4ke5b117gd" path="res://scripts/quit_button.gd" id="3_8ln24"]
+[ext_resource type="FontFile" uid="uid://bimtdtjyr4wqt" path="res://assets/Paytone_One/PaytoneOne-Regular.ttf" id="3_rtw2f"]
 
 [node name="Menu" type="Node2D"]
 
@@ -20,6 +21,7 @@ offset_left = 834.0
 offset_top = 466.0
 offset_right = 1097.0
 offset_bottom = 540.0
+theme_override_fonts/font = ExtResource("3_rtw2f")
 text = "Play"
 script = ExtResource("2_wu84c")
 scene_name = "level_select"
@@ -29,5 +31,6 @@ offset_left = 834.0
 offset_top = 559.0
 offset_right = 1097.0
 offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("3_rtw2f")
 text = "Quit"
 script = ExtResource("3_8ln24")
