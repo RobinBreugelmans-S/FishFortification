@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=13 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
 [ext_resource type="Texture2D" uid="uid://dn052p7066clm" path="res://assets/white.png" id="3_y3k84"]
 [ext_resource type="Script" uid="uid://be6lbivjdh87g" path="res://scripts/button_shop.gd" id="4_jv2qt"]
+[ext_resource type="FontFile" uid="uid://bimtdtjyr4wqt" path="res://assets/Paytone_One/PaytoneOne-Regular.ttf" id="4_rwsix"]
 [ext_resource type="Script" uid="uid://bknf0785e4qi" path="res://scripts/buy_tower.gd" id="5_673ui"]
 [ext_resource type="Script" uid="uid://dlp35704gsxv5" path="res://scripts/tower_squid.gd" id="6_y3k84"]
 [ext_resource type="Script" uid="uid://de7plwdqfv7n0" path="res://scripts/tower_shrimp.gd" id="7_kof1h"]
@@ -47,6 +48,7 @@ offset_left = -62.0
 offset_top = -64.0
 offset_right = 58.0
 offset_bottom = 176.0
+theme_override_fonts/normal_font = ExtResource("4_rwsix")
 bbcode_enabled = true
 text = "[color=#000000]baseHp: [/color]"
 
@@ -60,6 +62,7 @@ offset_left = -62.0
 offset_top = -63.0
 offset_right = 62.0
 offset_bottom = -23.0
+theme_override_fonts/normal_font = ExtResource("4_rwsix")
 bbcode_enabled = true
 text = "[color=#000000]SHOP[/color]"
 horizontal_alignment = 1
@@ -81,6 +84,7 @@ offset_left = 288.0
 offset_top = 123.0
 offset_right = 469.0
 offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("4_rwsix")
 text = "Squid"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("6_y3k84")
@@ -93,6 +97,7 @@ offset_left = 289.0
 offset_top = 293.0
 offset_right = 470.0
 offset_bottom = 461.0
+theme_override_fonts/font = ExtResource("4_rwsix")
 text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
@@ -105,6 +110,7 @@ texture_path = "res://assets/Shrimp.png"
 offset_left = 1720.0
 offset_right = 1920.0
 offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("4_rwsix")
 
 [node name="TowerPreview" type="Sprite2D" parent="UI"]
 
