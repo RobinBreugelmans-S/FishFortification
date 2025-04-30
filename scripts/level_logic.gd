@@ -10,6 +10,7 @@ var wave = 1
 var enemies_spawned = 0
 var has_wave_started = true
 var enemies_to_spawn = fib(wave)
+var enemy_index = 0
 
 var enemy: Resource = preload("res://enemy.tscn")
 var tower: Resource = preload("res://tower.tscn")
@@ -17,6 +18,19 @@ var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower
 var bought_tower_texture_path: String
+
+var enemy_textures: Array[Resource] = [
+	load("res://assets/icon.svg"),
+	load("res://assets/Enemy_Straw.png"),
+	load("res://assets/white.png"),
+]
+
+var enemy_values = [
+	[12, 69, 16],
+	[5, 194, 8],
+	[40, 33, 22],
+]
+
 
 var counter = 0
 
@@ -32,8 +46,9 @@ func _ready():
 
 func _physics_process(delta: float):
 	if (counter % 80 == 0 and enemies_to_spawn > 0):
+		enemy_index += 1
 		enemies_to_spawn -= 1;
-		spawn_enemy()
+		spawn_enemy(enemy_index)
 		has_wave_started = true
 	
 	# Input
@@ -69,8 +84,10 @@ func _physics_process(delta: float):
 	counter += 1
 
 #TODO: add parameters for which enemy
-func spawn_enemy():
-	$Map/Path.add_child(enemy.instantiate())
+func spawn_enemy(index: int):
+	var enemy: Node2D = enemy.instantiate()
+	set_enemy_values(enemy.get_child(0), index)
+	$Map/Path.add_child(enemy)
 
 func damage_base(dmg: int):
 	base_hp -= dmg
@@ -112,9 +129,14 @@ func fib(num):
 	var b = 1
 	var temp = 0
 	
-	for i in range(num):
+	for i in range(num + 5):
 		temp = a
 		a = b
 		b = temp + b
 	
 	return b
+
+func set_enemy_values(enemy: Sprite2D, index: int) -> void:
+	var value_index = index % len(enemy_values)
+	enemy.SetValues(enemy_values[value_index])
+	enemy.texture = enemy_textures[value_index]

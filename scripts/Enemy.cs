@@ -16,9 +16,11 @@ public partial class Enemy : Sprite2D
 	private Node levelLogic;
 
 	//TODO: add presets for enemy type
-	public Enemy()
+	public void SetValues(int[] values) //int hp, int spd, int moneyReward
 	{
-
+		Hp = values[0];
+		Spd = values[1];
+		MoneyReward = values[2];
 	}
 
 	override public void _Ready()
