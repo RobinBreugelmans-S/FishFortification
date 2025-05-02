@@ -91,6 +91,7 @@ func spawn_enemy(index: int):
 
 func damage_base(dmg: int):
 	base_hp -= dmg
+	spawn_value_effect(116, 18, -dmg, "")
 	if (base_hp <= 0):
 		base_hp = 0
 		#TODO: handle death
@@ -143,7 +144,10 @@ func set_enemy_values(enemy: Sprite2D, index: int) -> void:
 
 func add_money(amount: int):
 	money += amount
+	spawn_value_effect(116, 34, amount, "¢")
+
+func spawn_value_effect(x: int, y: int, amount: int, end: String):
 	var effect: Node2D = value_effect.instantiate()
-	effect.position = Vector2(97, 34)
-	effect.set_value(amount, "¢")
+	effect.position = Vector2(x, y)
+	effect.set_value(amount, end)
 	$UI.add_child(effect)
