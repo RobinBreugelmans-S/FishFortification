@@ -15,6 +15,6 @@ func _ready():
 
 func _button_pressed():
 	if(level_logic.money >= price):
-		level_logic.money -= price
+		level_logic.add_money(-price)
 		level_logic.bought_tower = tower_to_buy
 		level_logic.bought_tower_texture_path = texture_path

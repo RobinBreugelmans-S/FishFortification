@@ -14,6 +14,7 @@ var enemy_index = 0
 
 var enemy: Resource = preload("res://enemy.tscn")
 var tower: Resource = preload("res://tower.tscn")
+var value_effect: Resource = preload("res://value_effect.tscn")
 var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower
@@ -30,7 +31,6 @@ var enemy_values = [
 	[5, 194, 8],
 	[40, 33, 22],
 ]
-
 
 var counter = 0
 
@@ -71,7 +71,7 @@ func _physics_process(delta: float):
 	stats.text = ""
 	stats.push_color(Color(0, 0, 0, 1))
 	stats.append_text("baseHp: %s\n" % base_hp)
-	stats.append_text("money: %s\n" % money)
+	stats.append_text("money: %s¢\n" % money)
 	
 	#enemy sprite hover
 	if bought_tower:
@@ -140,3 +140,10 @@ func set_enemy_values(enemy: Sprite2D, index: int) -> void:
 	var value_index = index % len(enemy_values)
 	enemy.SetValues(enemy_values[value_index])
 	enemy.texture = enemy_textures[value_index]
+
+func add_money(amount: int):
+	money += amount
+	var effect: Node2D = value_effect.instantiate()
+	effect.position = Vector2(97, 34)
+	effect.set_value(amount, "¢")
+	$UI.add_child(effect)

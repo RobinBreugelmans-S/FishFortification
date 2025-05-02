@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://bknf0785e4qi" path="res://scripts/buy_tower.gd" id="5_673ui"]
 [ext_resource type="Script" uid="uid://dlp35704gsxv5" path="res://scripts/tower_squid.gd" id="6_y3k84"]
 [ext_resource type="Script" uid="uid://de7plwdqfv7n0" path="res://scripts/tower_shrimp.gd" id="7_kof1h"]
-[ext_resource type="Texture2D" uid="uid://vkh7ymqktr6r" path="res://assets/tempenemy.png" id="8_gp5ht"]
 [ext_resource type="Script" uid="uid://br08ixpqg8mss" path="res://scripts/Player.cs" id="8_kof1h"]
+[ext_resource type="Texture2D" uid="uid://dwlk2fo8wx1m6" path="res://assets/playerCharacter.png" id="9_rwsix"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -46,11 +46,14 @@ texture = ExtResource("3_y3k84")
 [node name="Text" type="RichTextLabel" parent="UI/Stats"]
 offset_left = -62.0
 offset_top = -64.0
-offset_right = 58.0
+offset_right = 68.0
 offset_bottom = 176.0
 theme_override_fonts/normal_font = ExtResource("4_rwsix")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[color=#000000]baseHp: [/color]"
+fit_content = true
+scroll_active = false
 
 [node name="Shop" type="Sprite2D" parent="UI"]
 position = Vector2(378, 96)
@@ -115,6 +118,6 @@ theme_override_fonts/normal_font = ExtResource("4_rwsix")
 [node name="TowerPreview" type="Sprite2D" parent="UI"]
 
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(670, 351)
-texture = ExtResource("8_gp5ht")
+position = Vector2(1587, 958)
+texture = ExtResource("9_rwsix")
 script = ExtResource("8_kof1h")

@@ -57,9 +57,11 @@ public partial class Enemy : Sprite2D
 	
 	private void die()
 	{
-		levelLogic.Set("money",
+		levelLogic.Call("add_money", MoneyReward);
+		
+		/*Set("money",
 			(int) levelLogic.Get("money") + MoneyReward
-		);
+		);*/
 		GetParent().QueueFree();
 	}
 }

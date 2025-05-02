@@ -24,6 +24,7 @@ func _physics_process(delta: float):
 		enemy.Slowed = false
 		queue_free()
 	
+	
 	counter += 1
 
 func on_touch(other: Area2D):
