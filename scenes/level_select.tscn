@@ -1,21 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqrosnm1j71nq"]
+[gd_scene load_steps=5 format=3 uid="uid://cqrosnm1j71nq"]
 
 [ext_resource type="Texture2D" uid="uid://bl5002xdgn264" path="res://assets/icon.svg" id="1_p0wlc"]
 [ext_resource type="Script" uid="uid://bketmw1oym2og" path="res://scripts/button_load_scene.gd" id="2_2epne"]
 [ext_resource type="FontFile" uid="uid://bimtdtjyr4wqt" path="res://assets/Paytone_One/PaytoneOne-Regular.ttf" id="2_rif6e"]
+[ext_resource type="Texture2D" uid="uid://coohdfjrc0hyi" path="res://assets/Level_Select_Background.png" id="4_rif6e"]
 
 [node name="Node2D2" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(66, 66)
+position = Vector2(273, 640)
 texture = ExtResource("1_p0wlc")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 116.0
-offset_top = 523.0
-offset_right = 316.0
-offset_bottom = 573.0
+offset_left = 180.0
+offset_top = 531.0
+offset_right = 380.0
+offset_bottom = 581.0
 theme_override_fonts/font = ExtResource("2_rif6e")
 text = "Castle"
 script = ExtResource("2_2epne")
 scene_name = "level_castle"
+
+[node name="LevelSelectBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("4_rif6e")
