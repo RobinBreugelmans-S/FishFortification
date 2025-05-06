@@ -4,6 +4,7 @@ var stats: RichTextLabel
 var wave_label: RichTextLabel
 
 var base_hp: int = 127
+var max_hp: int = 127
 var money: int = 100
 
 var wave = 1
@@ -19,6 +20,10 @@ var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower
 var bought_tower_texture_path: String
+
+var fullHpTexture: Resource = load("res://assets/Full_HP_Castle.png")
+var damagedTexture: Resource = load("res://assets/Damaged_Castle.png")
+var destroyedTexture: Resource = load("res://assets/Destroyed_Castle.png")
 
 var enemy_textures: Array[Resource] = [
 	load("res://assets/icon.svg"),
@@ -95,6 +100,10 @@ func damage_base(dmg: int):
 	if (base_hp <= 0):
 		base_hp = 0
 		#TODO: handle death
+	if base_hp <= max_hp/2:
+		$Map/Area2D/Castle.texture = damagedTexture
+	if base_hp == 0:
+		$Map/Area2D/Castle.texture = destroyedTexture
 
 #INPUT
 func _input(event):
