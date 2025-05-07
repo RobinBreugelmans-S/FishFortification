@@ -52,8 +52,9 @@ func _ready():
 
 func _physics_process(delta: float):
 	if (counter % 80 == 0 and enemies_to_spawn > 0):
-		enemy_index += 1
-		enemies_to_spawn -= 1;
+		if enemy_index % 3 == counter % 5: 
+			enemy_index += 1
+		enemies_to_spawn -= 1
 		spawn_enemy(enemy_index)
 		has_wave_started = true
 	
@@ -93,7 +94,6 @@ func _physics_process(delta: float):
 	
 	counter += 1
 
-#TODO: add parameters for which enemy
 func spawn_enemy(index: int):
 	var enemy: Node2D = enemy.instantiate()
 	set_enemy_values(enemy.get_child(0), index)
@@ -119,6 +119,7 @@ func _input(event):
 		place_tower(get_viewport().get_mouse_position(), bought_tower)
 		bought_tower = null
 		#TODO: make it possible to place different towers
+	
 	if event.is_action_pressed("up"):
 		move_up = true
 	if event.is_action_released("up"):
@@ -135,7 +136,7 @@ func _input(event):
 		move_right = true
 	if event.is_action_released("right"):
 		move_right = false
-	
+
 func place_tower(pos: Vector2, tower_script: Script):
 	var new_tower: Sprite2D =  tower.instantiate()
 	new_tower.position = pos
