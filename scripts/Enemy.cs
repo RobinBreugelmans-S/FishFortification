@@ -12,7 +12,12 @@ public partial class Enemy : Sprite2D
 	public bool Slowed = false;
 	private PathFollow2D track;
 	private Node levelLogic;
-	private double dyingCooldown = 2.0;
+	private double dyingCooldown;
+	private double maxDyingCooldown = 2.0;
+	
+	public Enemy(){
+		this.dyingCooldown = maxDyingCooldown;
+	}
 
 	//TODO: add presets for enemy type
 	public void SetValues(int[] values) //int hp, int spd, int moneyReward
@@ -64,7 +69,7 @@ public partial class Enemy : Sprite2D
 		if(dyingCooldown <= 0){
 			GetParent().QueueFree();
 		} else {
-			if (Scale.X >= 1) {
+			if (dyingCooldown == maxDyingCooldown) {
 				levelLogic.Call("add_money", MoneyReward);
 			}
 			Spd = 0;
@@ -73,7 +78,7 @@ public partial class Enemy : Sprite2D
 	}
 	
 	private void deathAnimation(){
-		Scale = (float) dyingCooldown / 2f * Vector2.One;
-		Rotation = (float) (2 * Math.PI * dyingCooldown / 2);
+		Scale = (float) (dyingCooldown / maxDyingCooldown) * Vector2.One;
+		Rotation = (float) (2 * Math.PI * dyingCooldown / maxDyingCooldown);
 	}
 }
