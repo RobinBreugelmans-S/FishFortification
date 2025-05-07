@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
 [ext_resource type="Texture2D" uid="uid://dn052p7066clm" path="res://assets/white.png" id="3_y3k84"]
-[ext_resource type="Script" uid="uid://be6lbivjdh87g" path="res://scripts/button_shop.gd" id="4_jv2qt"]
+[ext_resource type="Script" path="res://scripts/button_shop.gd" id="4_jv2qt"]
 [ext_resource type="FontFile" uid="uid://bimtdtjyr4wqt" path="res://assets/Paytone_One/PaytoneOne-Regular.ttf" id="4_rwsix"]
 [ext_resource type="Script" uid="uid://bknf0785e4qi" path="res://scripts/buy_tower.gd" id="5_673ui"]
 [ext_resource type="Script" uid="uid://dlp35704gsxv5" path="res://scripts/tower_squid.gd" id="6_y3k84"]
