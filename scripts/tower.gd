@@ -19,7 +19,7 @@ func _physics_process(delta: float):
 	
 	enemies_in_range = []
 	for enemy in all_enemies:
-		if (enemy.global_position - global_position).length() <= range:
+		if (enemy.global_position - global_position).length() <= range and enemy.get_child(0).Hp > 0:
 			enemies_in_range.append(enemy)
 	
 	if atk_countdown == 0 && there_are_enemies():
