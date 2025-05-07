@@ -3,8 +3,8 @@ extends Node
 var stats: RichTextLabel
 var wave_label: RichTextLabel
 
-var base_hp: int = 127
-var max_hp: int = 127
+var max_hp: int = 64
+var base_hp: int = max_hp
 var money: int = 100
 
 var wave = 1
@@ -24,6 +24,7 @@ var bought_tower_texture_path: String
 var fullHpTexture: Resource = load("res://assets/Full_HP_Castle.png")
 var damagedTexture: Resource = load("res://assets/Damaged_Castle.png")
 var destroyedTexture: Resource = load("res://assets/Destroyed_Castle.png")
+var base_anim_timer: int = 0
 
 var enemy_textures: Array[Resource] = [
 	load("res://assets/icon.svg"),
@@ -86,6 +87,10 @@ func _physics_process(delta: float):
 	else:
 		$UI/TowerPreview.texture = null
 	
+	if(base_anim_timer >= 0):
+		$Map/Area2D/Castle.offset.x = sin(base_anim_timer) * 6
+		base_anim_timer -= 1
+	
 	counter += 1
 
 #TODO: add parameters for which enemy
@@ -97,13 +102,16 @@ func spawn_enemy(index: int):
 func damage_base(dmg: int):
 	base_hp -= dmg
 	spawn_value_effect(116, 18, -dmg, "")
-	if (base_hp <= 0):
-		base_hp = 0
-		#TODO: handle death
+	play_damage_base_anim()
 	if base_hp <= max_hp/2:
 		$Map/Area2D/Castle.texture = damagedTexture
-	if base_hp == 0:
+	if base_hp <= 0:
+		base_hp = 0
 		$Map/Area2D/Castle.texture = destroyedTexture
+		#TODO: handle death
+
+func play_damage_base_anim():
+	base_anim_timer = 12
 
 #INPUT
 func _input(event):

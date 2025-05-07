@@ -34,7 +34,7 @@ public partial class Enemy : Sprite2D
 		track.Progress += Spd * (float)delta;
 		
 		if (Hp <= 0){
-			dyingCooldown -= delta;
+			dyingCooldown -= delta * 3.5;
 			this.die();
 		}
 		
@@ -62,13 +62,12 @@ public partial class Enemy : Sprite2D
 	private void die()
 	{
 		if(dyingCooldown <= 0){
-			levelLogic.Call("add_money", MoneyReward);
-			
-			/*Set("money",
-				(int) levelLogic.Get("money") + MoneyReward
-			);*/
 			GetParent().QueueFree();
 		} else {
+			if (Scale.X >= 1) {
+				levelLogic.Call("add_money", MoneyReward);
+			}
+			Spd = 0;
 			this.deathAnimation();
 		}
 	}
