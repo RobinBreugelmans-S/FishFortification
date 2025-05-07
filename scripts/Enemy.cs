@@ -74,5 +74,6 @@ public partial class Enemy : Sprite2D
 	
 	private void deathAnimation(){
 		Scale = (float) dyingCooldown / 2f * Vector2.One;
+		Rotation = (float) (2 * Math.PI * dyingCooldown / 2);
 	}
 }
