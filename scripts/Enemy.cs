@@ -10,10 +10,9 @@ public partial class Enemy : Sprite2D
 	public int MoneyReward = 16;
 	
 	public bool Slowed = false;
-	
 	private PathFollow2D track;
-
 	private Node levelLogic;
+	private double dyingCooldown = 2.0;
 
 	//TODO: add presets for enemy type
 	public void SetValues(int[] values) //int hp, int spd, int moneyReward
@@ -33,7 +32,12 @@ public partial class Enemy : Sprite2D
 	override public void _PhysicsProcess(double delta)
 	{
 		track.Progress += Spd * (float)delta;
-
+		
+		if (Hp <= 0){
+			dyingCooldown -= delta;
+			this.die();
+		}
+		
 		if(track.ProgressRatio == 1)
 		{
 			damageBaseAndDie();
@@ -57,11 +61,19 @@ public partial class Enemy : Sprite2D
 	
 	private void die()
 	{
-		levelLogic.Call("add_money", MoneyReward);
-		
-		/*Set("money",
-			(int) levelLogic.Get("money") + MoneyReward
-		);*/
-		GetParent().QueueFree();
+		if(dyingCooldown <= 0){
+			levelLogic.Call("add_money", MoneyReward);
+			
+			/*Set("money",
+				(int) levelLogic.Get("money") + MoneyReward
+			);*/
+			GetParent().QueueFree();
+		} else {
+			this.deathAnimation();
+		}
+	}
+	
+	private void deathAnimation(){
+		Scale = (float) dyingCooldown / 2f * Vector2.One;
 	}
 }
