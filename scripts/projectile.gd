@@ -10,10 +10,11 @@ func set_values(damage: int, velocity: Vector2):
 
 func on_touch(other: Area2D):
 	var enemy = other.get_parent()
-	if enemy.is_in_group("enemy"):
+	if enemy.is_in_group("enemy") and enemy.Hp > 0:
 		enemy.DoDamage(dmg)
 		queue_free()
 
 func _physics_process(delta: float):
 	global_position += vel
-	#TODO: add if outside of level bounds, queue_free()
+	if global_position.x < -10 or global_position.x > 1930 or global_position.y < -10 or global_position.y > 1090:
+		queue_free()
