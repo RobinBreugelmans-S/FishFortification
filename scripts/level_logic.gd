@@ -63,10 +63,12 @@ func _physics_process(delta: float):
 		$Player.Move(0)
 	if move_left:
 		$Player.Move(2)
+		$Player.flip_h = true
 	if move_down:
 		$Player.Move(1)
 	if move_right:
 		$Player.Move(3)
+		$Player.flip_h = false
 	
 	if len(get_tree().get_nodes_in_group("enemy")) == 0 and has_wave_started and enemies_to_spawn == 0:
 		wave += 1
