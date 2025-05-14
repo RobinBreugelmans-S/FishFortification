@@ -25,7 +25,8 @@ size = Vector2(1917, 1076)
 script = ExtResource("1_fqugn")
 
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(1038, 540)
+scale = Vector2(0.91875, 1)
 texture = ExtResource("2_jv2qt")
 
 [node name="Path" type="Path2D" parent="Map"]
@@ -35,6 +36,7 @@ curve = SubResource("Curve2D_5c4li")
 [node name="Area2D" type="Area2D" parent="Map"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Area2D"]
+visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_gp5ht")
 
@@ -44,32 +46,42 @@ texture = ExtResource("11_4lqle")
 
 [node name="UI" type="Node" parent="."]
 
-[node name="Stats" type="Sprite2D" parent="UI"]
-position = Vector2(64, 64)
+[node name="Bg" type="Sprite2D" parent="UI"]
+position = Vector2(78.5, 540)
+scale = Vector2(1.22656, 8.4375)
 texture = ExtResource("3_y3k84")
 
+[node name="Line" type="Sprite2D" parent="UI/Bg"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.407644, -37.6889)
+scale = Vector2(1, 0.0074074)
+texture = ExtResource("3_y3k84")
+
+[node name="Stats" type="Sprite2D" parent="UI"]
+position = Vector2(78.5, 78.5)
+
 [node name="Text" type="RichTextLabel" parent="UI/Stats"]
-offset_left = -62.0
-offset_top = -64.0
-offset_right = 68.0
-offset_bottom = 176.0
+offset_left = -74.0
+offset_top = -78.0
+offset_right = 56.0
+offset_bottom = 117.0
 theme_override_fonts/normal_font = ExtResource("4_rwsix")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[color=#000000]baseHp: [/color]"
+text = "[color=#000000]stats here[/color]"
 fit_content = true
 scroll_active = false
 
 [node name="Shop" type="Sprite2D" parent="UI"]
-position = Vector2(378, 96)
-scale = Vector2(1.5, 1.5)
+position = Vector2(78.5, 305.5)
+scale = Vector2(1.22656, 1.22656)
 texture = ExtResource("3_y3k84")
 
 [node name="Text" type="RichTextLabel" parent="UI/Shop"]
-offset_left = -62.0
-offset_top = -63.0
-offset_right = 62.0
-offset_bottom = -23.0
+offset_left = -61.5543
+offset_top = -32.2039
+offset_right = 62.4457
+offset_bottom = 7.79612
 theme_override_fonts/normal_font = ExtResource("4_rwsix")
 bbcode_enabled = true
 text = "[color=#000000]SHOP[/color]"
@@ -77,48 +89,75 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="UI/Shop"]
-offset_left = -63.0
-offset_top = -21.0
-offset_right = 63.0
-offset_bottom = 17.0
+offset_left = -64.0001
+offset_top = 505.886
+offset_right = 61.9999
+offset_bottom = 543.886
 text = "V"
 script = ExtResource("4_jv2qt")
 
-[node name="BuyTowerButtons" type="Node" parent="UI/Shop"]
+[node name="Button2" type="Button" parent="UI/Shop"]
+offset_left = -63.1848
+offset_top = 10.191
+offset_right = 62.8152
+offset_bottom = 48.191
+text = "^"
+script = ExtResource("4_jv2qt")
+
+[node name="BuyTowerButtons" type="Node2D" parent="UI/Shop"]
 
 [node name="BuySquid" type="Button" parent="UI/Shop/BuyTowerButtons"]
-visible = false
-offset_left = 288.0
-offset_top = 123.0
-offset_right = 469.0
-offset_bottom = 291.0
+offset_left = -59.9236
+offset_top = 165.911
+offset_right = 58.0764
+offset_bottom = 275.911
 theme_override_fonts/font = ExtResource("4_rwsix")
 text = "Squid"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("6_y3k84")
-price = 50
-texture_path = "res://assets/squid.png"
 
 [node name="BuyShrimp" type="Button" parent="UI/Shop/BuyTowerButtons"]
-visible = false
-offset_left = 289.0
-offset_top = 293.0
-offset_right = 470.0
-offset_bottom = 461.0
+offset_left = -59.9236
+offset_top = 53.4014
+offset_right = 58.0764
+offset_bottom = 162.402
 theme_override_fonts/font = ExtResource("4_rwsix")
 text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
-price = 50
-texture_path = "res://assets/Shrimp.png"
+
+[node name="BuyLocked" type="Button" parent="UI/Shop/BuyTowerButtons"]
+offset_left = -59.9237
+offset_top = 392.561
+offset_right = 58.0763
+offset_bottom = 502.561
+theme_override_fonts/font = ExtResource("4_rwsix")
+text = "🔒"
+
+[node name="BuyLocked2" type="Button" parent="UI/Shop/BuyTowerButtons"]
+offset_left = -59.9237
+offset_top = 280.052
+offset_right = 58.0763
+offset_bottom = 390.052
+theme_override_fonts/font = ExtResource("4_rwsix")
+text = "🔒"
 
 [node name="Wave" type="Sprite2D" parent="UI"]
 
 [node name="Text" type="RichTextLabel" parent="UI/Wave"]
-offset_left = 1720.0
-offset_right = 1920.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 979.0
+offset_right = 156.0
+offset_bottom = 1019.0
 theme_override_fonts/normal_font = ExtResource("4_rwsix")
+bbcode_enabled = true
+text = "[color=#000000]wave:[/color]"
+
+[node name="Button" type="Button" parent="UI/Wave"]
+offset_top = 1021.0
+offset_right = 157.0
+offset_bottom = 1080.0
+text = "play/pause btn"
 
 [node name="TowerPreview" type="Sprite2D" parent="UI"]
 

@@ -3,10 +3,13 @@ extends Tower
 var projectile = preload("res://projectile.tscn")
 var projectile_spd = 8
 
+var stats = [4, 50, 460, 50]
+
 func _init():
-	dmg = 6
+	dmg = 4
 	atk_delay = 50
 	range = 460
+	price = 50
 	texture = load("res://assets/Shrimp.png")
 
 func attack():

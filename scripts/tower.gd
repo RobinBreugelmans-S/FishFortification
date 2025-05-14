@@ -1,6 +1,8 @@
 class_name Tower
 extends Sprite2D
 
+var price
+
 var dmg
 var atk_delay
 var range: float

@@ -19,7 +19,7 @@ var value_effect: Resource = preload("res://value_effect.tscn")
 var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower
-var bought_tower_texture_path: String
+var bought_tower_texture: Texture2D
 
 var fullHpTexture: Resource = load("res://assets/Full_HP_Castle.png")
 var damagedTexture: Resource = load("res://assets/Damaged_Castle.png")
@@ -48,11 +48,11 @@ var move_down = false
 func _ready():
 	stats = $UI/Stats/Text
 	wave_label = $UI/Wave/Text
-	wave_label.append_text("Wave: %s" % wave)
+	update_wave_text()
 
 func _physics_process(delta: float):
 	if (counter % 80 == 0 and enemies_to_spawn > 0):
-		if enemy_index % 3 == counter % 5: 
+		if enemy_index % 3 == enemies_to_spawn % 7: 
 			enemy_index += 1
 		enemies_to_spawn -= 1
 		spawn_enemy(enemy_index)
@@ -74,7 +74,7 @@ func _physics_process(delta: float):
 		wave += 1
 		enemies_to_spawn = fib(wave)
 		has_wave_started = false
-		wave_label.text = "Wave: %s" % wave
+		update_wave_text()
 	
 	#stats
 	stats.text = ""
@@ -85,7 +85,7 @@ func _physics_process(delta: float):
 	#enemy sprite hover
 	if bought_tower:
 		if !$UI/TowerPreview.texture:
-			$UI/TowerPreview.texture = load(bought_tower_texture_path)
+			$UI/TowerPreview.texture = bought_tower_texture
 		$UI/TowerPreview.global_position = get_viewport().get_mouse_position()
 	else:
 		$UI/TowerPreview.texture = null
@@ -95,6 +95,11 @@ func _physics_process(delta: float):
 		base_anim_timer -= 1
 	
 	counter += 1
+
+func update_wave_text():
+	wave_label.text = ""
+	wave_label.push_color(Color(0, 0, 0, 1))
+	wave_label.append_text("Wave: %s" % wave)
 
 func spawn_enemy(index: int):
 	var enemy: Node2D = enemy.instantiate()

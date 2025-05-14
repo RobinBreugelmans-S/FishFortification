@@ -3,10 +3,13 @@ extends Tower
 var projectile = preload("res://ink_splat.tscn")
 var projectile_spd = 8
 
+var stats = [2, 120, 320, 40]
+
 func _init():
 	dmg = 2
 	atk_delay = 120
 	range = 320
+	price = 40
 	texture = load("res://assets/squid.png")
 
 func attack():

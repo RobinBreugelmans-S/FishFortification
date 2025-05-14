@@ -1,20 +1,23 @@
 extends Button
 
 @export
-var tower_to_buy: Script
-@export
-var price: int
+var tower_to_buy: GDScript
+var _tower_to_buy: Sprite2D
+#@export
+#var price: int
 var level_logic
-@export
-var texture_path: String
+#@export
+#var texture_path: String
 
 func _ready():
+	_tower_to_buy = tower_to_buy.new()
 	level_logic = $"/root/Level"
 	self.pressed.connect(_button_pressed)
-	text += "\n" + str(price) 
+	text += "\n" + str(_tower_to_buy.stats[3]) + "¢"
 
 func _button_pressed():
-	if(level_logic.money >= price):
-		level_logic.add_money(-price)
+	if(level_logic.money >= _tower_to_buy.stats[3]):
+		level_logic.add_money(-_tower_to_buy.stats[3])
 		level_logic.bought_tower = tower_to_buy
-		level_logic.bought_tower_texture_path = texture_path
+		level_logic.bought_tower_texture = _tower_to_buy.texture
+#_path
