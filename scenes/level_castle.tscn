@@ -106,25 +106,32 @@ script = ExtResource("4_jv2qt")
 
 [node name="BuyTowerButtons" type="Node2D" parent="UI/Shop"]
 
-[node name="BuySquid" type="Button" parent="UI/Shop/BuyTowerButtons"]
-offset_left = -59.9236
-offset_top = 165.911
-offset_right = 58.0764
-offset_bottom = 275.911
-theme_override_fonts/font = ExtResource("4_rwsix")
-text = "Squid"
-script = ExtResource("5_673ui")
-tower_to_buy = ExtResource("6_y3k84")
-
 [node name="BuyShrimp" type="Button" parent="UI/Shop/BuyTowerButtons"]
 offset_left = -59.9236
 offset_top = 53.4014
 offset_right = 58.0764
 offset_bottom = 162.402
 theme_override_fonts/font = ExtResource("4_rwsix")
-text = "Shrimp"
 script = ExtResource("5_673ui")
 tower_to_buy = ExtResource("7_kof1h")
+
+[node name="TowerSprite" type="Sprite2D" parent="UI/Shop/BuyTowerButtons/BuyShrimp"]
+position = Vector2(60, 45)
+scale = Vector2(0.7, 0.7)
+
+[node name="BuySquid" type="Button" parent="UI/Shop/BuyTowerButtons"]
+offset_left = -59.9236
+offset_top = 165.911
+offset_right = 58.0764
+offset_bottom = 275.911
+theme_override_fonts/font = ExtResource("4_rwsix")
+theme_override_font_sizes/font_size = 17
+script = ExtResource("5_673ui")
+tower_to_buy = ExtResource("6_y3k84")
+
+[node name="TowerSprite" type="Sprite2D" parent="UI/Shop/BuyTowerButtons/BuySquid"]
+position = Vector2(60, 45)
+scale = Vector2(0.49, 0.49)
 
 [node name="BuyLocked" type="Button" parent="UI/Shop/BuyTowerButtons"]
 offset_left = -59.9237

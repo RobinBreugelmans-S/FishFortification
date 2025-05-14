@@ -13,7 +13,8 @@ func _ready():
 	_tower_to_buy = tower_to_buy.new()
 	level_logic = $"/root/Level"
 	self.pressed.connect(_button_pressed)
-	text += "\n" + str(_tower_to_buy.stats[3]) + "¢"
+	text += "\n\n\n" + str(_tower_to_buy.stats[3]) + "¢"
+	$TowerSprite.texture = _tower_to_buy.texture
 
 func _button_pressed():
 	if(level_logic.money >= _tower_to_buy.stats[3]):
