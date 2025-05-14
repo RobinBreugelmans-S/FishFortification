@@ -27,9 +27,9 @@ var destroyedTexture: Resource = load("res://assets/Destroyed_Castle.png")
 var base_anim_timer: int = 0
 
 var enemy_textures: Array[Resource] = [
-	load("res://assets/icon.svg"),
+	load("res://assets/Can.png"),
 	load("res://assets/Enemy_Straw.png"),
-	load("res://assets/white.png"),
+	load("res://assets/Car_Battery.png"),
 ]
 
 var enemy_values = [
