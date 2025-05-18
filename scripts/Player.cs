@@ -17,7 +17,6 @@ public partial class Player : Sprite2D
 	public Player()
 	{
 		this.movement_speed = Vector2.Zero;
-		this.Position = new Vector2(500, 500);
 		this.speed_damping = 0.90f;  // Should be in the domain [0, 1]
 		this.max_movement_speed = 10f;
 	}

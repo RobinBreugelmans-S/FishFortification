@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rp5jcysuffav"]
+[gd_scene load_steps=16 format=3 uid="uid://rp5jcysuffav"]
 
 [ext_resource type="Script" uid="uid://7nfcefgdaijj" path="res://scripts/level_logic.gd" id="1_fqugn"]
 [ext_resource type="Texture2D" uid="uid://bi0usysa0i1r0" path="res://assets/map_castle.png" id="2_jv2qt"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://de7plwdqfv7n0" path="res://scripts/tower_shrimp.gd" id="7_kof1h"]
 [ext_resource type="Script" uid="uid://br08ixpqg8mss" path="res://scripts/Player.cs" id="8_kof1h"]
 [ext_resource type="Texture2D" uid="uid://dwlk2fo8wx1m6" path="res://assets/playerCharacter.png" id="9_rwsix"]
+[ext_resource type="Script" uid="uid://dxveyd1i8aa70" path="res://scripts/button_tutorial_next.gd" id="10_4lqle"]
 [ext_resource type="Texture2D" uid="uid://b2xykmlcmhnfn" path="res://assets/Full_HP_Castle.png" id="11_4lqle"]
+[ext_resource type="Script" uid="uid://d0sg2f7s0riki" path="res://scripts/menu_close.gd" id="11_fhj2i"]
 
 [sub_resource type="Curve2D" id="Curve2D_5c4li"]
 _data = {
@@ -53,7 +55,7 @@ texture = ExtResource("3_y3k84")
 
 [node name="Line" type="Sprite2D" parent="UI/Bg"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-0.407644, -37.6889)
+position = Vector2(-0.407644, -32.3556)
 scale = Vector2(1, 0.0074074)
 texture = ExtResource("3_y3k84")
 
@@ -75,7 +77,6 @@ scroll_active = false
 [node name="Shop" type="Sprite2D" parent="UI"]
 position = Vector2(78.5, 305.5)
 scale = Vector2(1.22656, 1.22656)
-texture = ExtResource("3_y3k84")
 
 [node name="Text" type="RichTextLabel" parent="UI/Shop"]
 offset_left = -61.5543
@@ -158,7 +159,7 @@ offset_right = 156.0
 offset_bottom = 1019.0
 theme_override_fonts/normal_font = ExtResource("4_rwsix")
 bbcode_enabled = true
-text = "[color=#000000]wave:[/color]"
+text = "[color=#000000]  Wave: [/color]"
 
 [node name="Button" type="Button" parent="UI/Wave"]
 offset_top = 1021.0
@@ -168,7 +169,59 @@ text = "play/pause btn"
 
 [node name="TowerPreview" type="Sprite2D" parent="UI"]
 
+[node name="Tutorial" type="Node" parent="UI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Tutorial"]
+position = Vector2(1038, 540)
+scale = Vector2(6.67187, 3.26563)
+texture = ExtResource("3_y3k84")
+
+[node name="Text" type="RichTextLabel" parent="UI/Tutorial"]
+offset_left = 617.0
+offset_top = 337.0
+offset_right = 1457.0
+offset_bottom = 738.0
+bbcode_enabled = true
+text = "[color=#000000]
+
+
+
+
+
+
+
+
+
+
+This is your player.
+Move around with the arrow keys or with WASD/ZQSD and click to attack.[/color]"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="UI/Tutorial"]
+offset_left = 981.0
+offset_top = 703.0
+offset_right = 1097.0
+offset_bottom = 745.0
+theme_override_fonts/font = ExtResource("4_rwsix")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+script = ExtResource("10_4lqle")
+
+[node name="Close" type="Button" parent="UI/Tutorial"]
+offset_left = 1430.0
+offset_top = 331.0
+offset_right = 1465.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 24
+text = " X "
+script = ExtResource("11_fhj2i")
+
+[node name="PlayerPreview" type="Sprite2D" parent="UI/Tutorial"]
+position = Vector2(1040, 481)
+scale = Vector2(1.70388, 1.70388)
+texture = ExtResource("9_rwsix")
+
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(1587, 958)
+position = Vector2(1025, 999)
 texture = ExtResource("9_rwsix")
 script = ExtResource("8_kof1h")

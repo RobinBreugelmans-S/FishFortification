@@ -1,5 +1,7 @@
 extends Node
 
+var started: bool = false
+
 var stats: RichTextLabel
 var wave_label: RichTextLabel
 
@@ -51,7 +53,7 @@ func _ready():
 	update_wave_text()
 
 func _physics_process(delta: float):
-	if (counter % 80 == 0 and enemies_to_spawn > 0):
+	if  started && counter % 80 == 0 and enemies_to_spawn > 0:
 		if enemy_index % 3 == enemies_to_spawn % 7: 
 			enemy_index += 1
 		enemies_to_spawn -= 1
