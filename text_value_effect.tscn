@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c56iej06j1mcp"]
+
+[ext_resource type="Script" uid="uid://dxkdbgb7tkmle" path="res://scripts/text_value_effect.gd" id="1_6xp2t"]
+[ext_resource type="FontFile" uid="uid://bimtdtjyr4wqt" path="res://assets/Paytone_One/PaytoneOne-Regular.ttf" id="2_2feg0"]
+
+[node name="TextValueEffect" type="Node2D"]
+script = ExtResource("1_6xp2t")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_right = 1210.0
+offset_bottom = 254.0
+theme_override_fonts/normal_font = ExtResource("2_2feg0")
+theme_override_font_sizes/normal_font_size = 30

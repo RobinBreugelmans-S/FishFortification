@@ -18,6 +18,7 @@ var enemy_index = 0
 var enemy: Resource = preload("res://enemy.tscn")
 var tower: Resource = preload("res://tower.tscn")
 var value_effect: Resource = preload("res://value_effect.tscn")
+var text_value_effect: Resource = preload("res://text_value_effect.tscn")
 var shrimp_script: Script = load("res://scripts/tower_shrimp.gd")
 var squid_script: Script = load("res://scripts/tower_squid.gd")
 var bought_tower
@@ -177,4 +178,10 @@ func spawn_value_effect(x: int, y: int, amount: int, end: String):
 	var effect: Node2D = value_effect.instantiate()
 	effect.position = Vector2(x, y)
 	effect.set_value(amount, end)
+	$UI.add_child(effect)
+
+func display_not_enough():
+	var effect: Node2D = text_value_effect.instantiate()
+	effect.position = Vector2(get_viewport().get_mouse_position())
+	effect.set_text_value("Not enough currency!")
 	$UI.add_child(effect)
